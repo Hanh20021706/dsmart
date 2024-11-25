@@ -57,21 +57,49 @@ img {
 /* header  */
 .header {
   color: var(--color-text-default);
-  height: 84px;
+  height: 64px;
   z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 .header .header-box {
-  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .header-box .header-left .header-left-logo {
   max-width: 100px;
+}
+.header .header-main {
+  display: none;
+  padding: 0;
+}
+.header-nav .nav-list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 24px;
+}
+.header-nav .nav-list li {
+  position: relative;
 }
 .header-nav .nav-list a {
   color: var(--color-text-default);
   font-size: 18px;
   border-bottom: 1px solid transparent;
   padding: 8px 0;
+  display: flex;
+  text-decoration: none;
 }
+.header-nav .nav-list .active {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .header-nav .nav-list a:hover {
   color: var(--color-primary);
   border-bottom: 1px solid var(--color-primary);
@@ -79,10 +107,17 @@ img {
 }
 .header-nav .nav-sub {
   display: none;
-  /* left: 0; */
+  left: 0;
   top: 44px;
   background: var(--color-light);
   padding: 8px 12px;
+  position: absolute;
+}
+.header-nav .nav-sub .nav-sub-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 .header-nav .nav-list li:hover .nav-sub {
   display: flex;
@@ -91,9 +126,16 @@ img {
 .header-nav .nav-sub .nav-sub-item {
   color: var(--color-text-default);
   white-space: nowrap;
+  text-decoration: none;
 }
 .header-nav .nav-sub .nav-sub-item:hover {
   border: none;
+}
+.header .header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: end;
 }
 
 .header-right .button-search {
@@ -116,7 +158,7 @@ img {
 
 /* banner */
 .banner {
-  margin-top: 84px;
+  margin-top: 64px;
   background-image: url("/assets/images/banner.jpg");
   background-size: cover;
   background-position: center;
@@ -506,11 +548,21 @@ img {
 }
 /* lg */
 @media screen and (min-width: 992px) {
+  .header {
+    height: 84px;
+  }
+  .header-box .header-main {
+    display: flex;
+    justify-content: center;
+  }
   .header-box .header-left .header-left-logo {
     max-width: 200px;
   }
   .featured-card .featured-card-body .card-body-img {
     max-width: 250px;
+  }
+  .banner {
+    margin-top: 84px;
   }
   .slider-item {
     gap: 140px;
